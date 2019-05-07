@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="cd-manager:war">
+    <output-path>$PROJECT_DIR$/commonparent/cd-manager/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>cd-manager</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="cd-manager.war">
+      <element id="artifact" artifact-name="cd-manager:war exploded" />
+    </root>
+  </artifact>
+</component>

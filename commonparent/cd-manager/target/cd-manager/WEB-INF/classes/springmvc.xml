@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                            http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context
+                            http://www.springframework.org/schema/context/spring-context.xsd
+                            http://www.springframework.org/schema/aop
+                            http://www.springframework.org/schema/aop/spring-aop.xsd
+                            http://www.springframework.org/schema/tx
+                            http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- 开启注解扫描，要扫描的是springmvc的注解，controller由sprignmvc来管理，dao和service由spring来管理 -->
+    <context:component-scan base-package="com.literary">
+        <!-- 配置要扫描的注解 -->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--开启springmvc注解扫描，开启注解扫描相当于配置配置处理映射器和处理适配器-->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!--配置处理映射器-->
+    <!--配置处理适配器-->
+
+    <!--配置视图解析器-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/modules/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!--配置静态资源目录-->
+    <mvc:resources mapping="/assets/Images/**" location="/assets/Images/"></mvc:resources>
+    <mvc:resources mapping="/assets/Scripts/**" location="/assets/Scripts/"></mvc:resources>
+    <mvc:resources mapping="/assets/Styles/**" location="/assets/Styles/"></mvc:resources>
+
+</beans>
